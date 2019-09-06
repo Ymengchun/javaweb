@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * 案例：文件下载
+ */
 @WebServlet("/downloadServlet")
 public class DownloadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
