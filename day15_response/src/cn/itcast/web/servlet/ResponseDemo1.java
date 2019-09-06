@@ -15,17 +15,19 @@ import java.io.IOException;
 public class ResponseDemo1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("demo1........");
+        System.out.println("demo11111111........");
 
 
 
-        //访问/responseDemo1，会自动跳转到/responseDemo2资源
-       /* //1. 设置状态码为302
+        //演示重定向：访问/responseDemo1，会自动跳转到/responseDemo2资源
+        /*
+        //1.设置状态码为302
         response.setStatus(302);
         //2.设置响应头location
-        response.setHeader("location","/day15/responseDemo2");*/
+        response.setHeader("location","/day15/responseDemo2");  ///day15是虚拟路径，需要在TomCat->Edit Configurations->deployment->Application Context中设置
+        */
 
-        request.setAttribute("msg","response");
+        request.setAttribute("msg","response"); //在共享域中存储数据
 
         //动态获取虚拟目录
         String contextPath = request.getContextPath();

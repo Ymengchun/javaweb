@@ -12,7 +12,7 @@ public class ResponseDemo2 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("demo2222222........");
 
-        Object msg = request.getAttribute("msg");
+        Object msg = request.getAttribute("msg");   //从共享域中获取数据
         System.out.println(msg);
     }
 
