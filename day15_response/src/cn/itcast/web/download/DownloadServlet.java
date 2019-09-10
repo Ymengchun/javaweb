@@ -1,5 +1,3 @@
-package cn.itcast.web.download;
-
 import cn.itcast.web.utils.DownLoadUtils;
 
 import javax.servlet.ServletContext;
@@ -39,7 +37,7 @@ public class DownloadServlet extends HttpServlet {
         String agent = request.getHeader("user-agent");
         //2.使用工具类方法编码文件名即可
         filename = DownLoadUtils.getFileName(agent, filename);
-        response.setHeader("content-disposition","attachment;filename="+filename);
+        response.setHeader("content-disposition","attachment;filename="+filename);  //attachment：以附件的形式
 
         //4.将输入流的数据写出到输出流中
         ServletOutputStream sos = response.getOutputStream();
@@ -54,6 +52,6 @@ public class DownloadServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request,response);
+        this.doPost(request, response);
     }
 }
