@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         //3.先获取生成的验证码
         HttpSession session = request.getSession();
         String checkCode_session = (String) session.getAttribute("checkCode_session");
-        //删除session中存储的验证码
+        //删除session中存储的验证码（保证验证码是一次性）
         session.removeAttribute("checkCode_session");
         //3.先判断验证码是否正确
         if (checkCode_session!= null && checkCode_session.equalsIgnoreCase(checkCode)){
