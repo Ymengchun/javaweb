@@ -18,7 +18,6 @@ public class DelUserServlet extends HttpServlet {
         //2.调用service删除
         UserService service = new UserServiceImpl();
         service.deleteUser(id);
-
         //3.跳转到查询所有Servlet
         response.sendRedirect(request.getContextPath()+"/userListServlet");
     }
