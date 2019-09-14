@@ -19,11 +19,10 @@ public class FindUserServlet extends HttpServlet {
         //2.调用Service查询
         UserService service = new UserServiceImpl();
         User user = service.findUserById(id);
-
         //3.将user存入request
-        request.setAttribute("user",user);
+        request.setAttribute("user", user);
         //4.转发到update.jsp
-        request.getRequestDispatcher("/update.jsp").forward(request,response);
+        request.getRequestDispatcher("/update.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
