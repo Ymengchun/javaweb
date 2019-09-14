@@ -38,17 +38,17 @@ public class CheckCodeServlet extends HttpServlet {
 		//填充图片
 		g.fillRect(0,0, width,height);
 		
-		//产生4个随机验证码，12Ey
+		//产生4位随机字符验证码
 		String checkCode = getCheckCode();
 		//将验证码放入HttpSession中
-		request.getSession().setAttribute("CHECKCODE_SERVER",checkCode);
+		request.getSession().setAttribute("CHECKCODE_SERVER", checkCode);
 		
 		//设置画笔颜色为黄色
 		g.setColor(Color.YELLOW);
 		//设置字体的小大
-		g.setFont(new Font("黑体",Font.BOLD,24));
+		g.setFont(new Font("黑体", Font.BOLD, 24));
 		//向图片上写入验证码
-		g.drawString(checkCode,15,25);
+		g.drawString(checkCode, 15, 25);
 		
 		//将内存中的图片输出到浏览器
 		//参数一：图片对象
@@ -56,15 +56,20 @@ public class CheckCodeServlet extends HttpServlet {
 		//参数三：图片输出到哪里去
 		ImageIO.write(image,"PNG",response.getOutputStream());
 	}
+	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.doGet(request,response);
+	}
+	
 	/**
 	 * 产生4位随机字符串 
 	 */
 	private String getCheckCode() {
-		String base = "0123456789ABCDEFGabcdefg";
+		String base = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 		int size = base.length();
 		Random r = new Random();
 		StringBuffer sb = new StringBuffer();
-		for(int i=1;i<=4;i++){
+		for(int i=1; i<=4; i++){
 			//产生0到size-1的随机值
 			int index = r.nextInt(size);
 			//在base字符串中获取下标为index的字符
@@ -74,9 +79,8 @@ public class CheckCodeServlet extends HttpServlet {
 		}
 		return sb.toString();
 	}
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.doGet(request,response);
-	}
+	
+	
 }
 
 
