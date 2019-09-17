@@ -15,7 +15,7 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
         System.out.println(req);
         //0.强制转换
-        HttpServletRequest request = (HttpServletRequest) req;
+        HttpServletRequest request = (HttpServletRequest) req;  //强制转型，getRequestURI()属于HttpServletRequest中的方法
 
         //1.获取资源请求路径
         String uri = request.getRequestURI();
