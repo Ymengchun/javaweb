@@ -21,18 +21,20 @@
                 3. 使用  show/hide方法来完成广告的显示
          */
 
-        //入口函数，在页面加载完成之后，定义定时器，调用这两个方法
+        //入口函数，在页面加载完成之后，启动定时器，调用这两个方法
         $(function () {
            //定义定时器，调用adShow方法 3秒后执行一次
            setTimeout(adShow,3000);
            //定义定时器，调用adHide方法，8秒后执行一次
             setTimeout(adHide,8000);
         });
+        
         //显示广告
         function adShow() {
             //获取广告div，调用显示方法
             $("#ad").show("slow");
         }
+        
         //隐藏广告
         function adHide() {
             //获取广告div，调用隐藏方法
