@@ -21,6 +21,7 @@
                     1.2 给大相框设置src属性
 
          */
+        //图片的路径数组
         var imgs = ["../img/man00.jpg",
                     "../img/man01.jpg",
                     "../img/man02.jpg",
@@ -29,25 +30,27 @@
                     "../img/man05.jpg",
                     "../img/man06.jpg",
                     ];
-        var startId;//开始定时器的id
-        var index;//随机角标
+        var startId;    //开始定时器的id
+        var index;  //随机下标
+        
+        //入口函数
         $(function () {
-            //处理按钮是否可以使用的效果
-            $("#startID").prop("disabled",false);
-            $("#stopID").prop("disabled",true);
+            //优化：处理按钮是否可以使用
+            $("#startID").prop("disabled",false);   //开始按钮可用
+            $("#stopID").prop("disabled",true);     //结束按钮不可用
 
 
            //1. 给开始按钮绑定单击事件
             $("#startID").click(function () {
                 // 1.1 定义循环定时器 20毫秒执行一次
-                startId = setInterval(function () {
-                    //处理按钮是否可以使用的效果
-                    $("#startID").prop("disabled",true);
-                    $("#stopID").prop("disabled",false);
+                startId = setInterval(function () {     //setInterval()：定义计时器
+                    //优化：处理按钮是否可以使用
+                    $("#startID").prop("disabled",true);    //开始按钮不可用
+                    $("#stopID").prop("disabled",false);    //结束按钮可用
 
 
                     //1.2生成随机角标 0-6
-                    index = Math.floor(Math.random() * 7);//0.000--0.999 --> * 7 --> 0.0-----6.9999
+                    index = Math.floor(Math.random() * 7);  //Math.random()：生成0.000~0.999
                     //1.3设置小相框的src属性
                     $("#img1ID").prop("src",imgs[index]);
 
@@ -57,9 +60,9 @@
 
             //2. 给结束按钮绑定单击事件
             $("#stopID").click(function () {
-                //处理按钮是否可以使用的效果
-                $("#startID").prop("disabled",false);
-                $("#stopID").prop("disabled",true);
+                //优化：处理按钮是否可以使用
+                $("#startID").prop("disabled",false);   //开始按钮可用
+                $("#stopID").prop("disabled",true);     //结束按钮不可用
 
 
                // 1.1 停止定时器
