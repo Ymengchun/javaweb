@@ -15,14 +15,17 @@
                 type:"POST" , //请求方式
                 //data: "username=jack&age=23",//请求参数
                 data:{"username":"jack","age":23},
-                success:function (data) {
+                
+                //响应成功后的回调函数
+                success:function (data) {   
                     alert(data);
-                },//响应成功后的回调函数
+                },
+                //出现错误时的回调函数
                 error:function () {
                     alert("出错啦...")
-                },//表示如果请求响应出现错误，会执行的回调函数
+                },
 
-                dataType:"text"//设置接受到的响应数据的格式
+                dataType:"text"//设置接收到的响应数据的格式
             });
         }
         
